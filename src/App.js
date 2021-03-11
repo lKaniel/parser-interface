@@ -21,7 +21,7 @@ function App() {
 
     const getData = useCallback(async () => {
         try {
-            const response = await axios.get(`localhost:4000/getposts?` +
+            const SQL = `http://timewars.online:4000/getposts?` +
                 `dr=${state.sort.dr[0]}:${state.sort.dr[1]}&` +
                 `blacklinks=${state.sort.blacklinks[0]}:${state.sort.blacklinks[1]}&` +
                 `doFollowBlacklinks=${state.sort.doFollowBlacklinks[0]}:${state.sort.doFollowBlacklinks[1]}&` +
@@ -30,8 +30,8 @@ function App() {
                 `order=${state.sort.order}&` +
                 `reverse=${state.sort.reverse}&` +
                 `page=${state.sort.page}&` +
-                `count=${state.sort.count}`
-            );
+                `count=${state.sort.count}`;
+            const response = await axios.get(SQL);
             let data = response.data;
             console.log(data)
             setState((prev) => {
