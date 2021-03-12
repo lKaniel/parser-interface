@@ -1,11 +1,11 @@
 import React from 'react';
 import classes from "./List.module.scss";
 
-const List = ({posts}) => {
+const List = ({posts, page, maxPages, sort}) => {
 
     posts = posts.map((element, index) => {
         return (
-            <tr>
+            <tr key={element.id}>
                 <td>{element.id}</td>
                 <td>{element.domain}</td>
                 <td>{element.createdAt.split("T")[0]}</td>
@@ -21,21 +21,27 @@ const List = ({posts}) => {
     return (
         <div className={classes.List}>
             <table>
-                <thead/>
-                <tbody>
+                <thead>
                 <tr>
-                    <td>ID</td>
-                    <td>Domain</td>
-                    <td>Created at</td>
-                    <td>DR</td>
-                    <td>Blacklinks</td>
-                    <td>Do follow blacklinks</td>
-                    <td>Organic keywords</td>
+                    <td onClick={()=>{sort("id")}}>ID</td>
+                    <td onClick={()=>{sort("domain")}}>Domain</td>
+                    <td onClick={()=>{sort("createdAt")}}>Created at</td>
+                    <td onClick={()=>{sort("dr")}}>DR</td>
+                    <td onClick={()=>{sort("blacklinks")}}>Blacklinks</td>
+                    <td onClick={()=>{sort("doFollowBlacklinks")}}>Do follow blacklinks</td>
+                    <td onClick={()=>{sort("organicKeywords")}}>Organic keywords</td>
                 </tr>
+                </thead>
+                <tbody>
                 {posts}
                 </tbody>
                 <tfoot/>
             </table>
+            <ul className={classes.Next}>
+                {page === 1 ? <li className={classes.Blank}>Prev</li> : <li>prev</li>}
+                <li className={classes.Number}>{page}</li>
+                {page === maxPages ? <li className={classes.Blank}>Next</li> : <li>next</li>}
+            </ul>
         </div>
     );
 };

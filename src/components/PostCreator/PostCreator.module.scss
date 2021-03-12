@@ -1,0 +1,119 @@
+.PostCreator{
+  position: fixed;
+  z-index: 999999;
+  overflow: visible;
+
+  .OpenButton{
+    overflow: hidden;
+    outline: none;
+    color: #CFDEE7;
+    font-size: 70px;
+    //font-weight: 600;
+    position: absolute;
+    margin-top: calc(100vh - 100px);
+    margin-left: calc(100vw - 100px);
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    background: #303036;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+    transition: transform .2s ease-in-out;
+    z-index: 99999999;
+  }
+
+  .OpenButton.open{
+    transform: rotate(45deg);
+  }
+
+  .OpenButton.left{
+    margin-left: 20px;
+  }
+
+  .PostCreatorWrap{
+    background: #303036;
+    transition: clip-path .5s ease-in-out;
+    clip-path: circle(40px at calc(340px) calc(100vh - 60px));
+    width: 400px;
+    margin-left: calc(100vw - 400px);
+    height: 100vh;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .PostCreatorContent{
+      width: 100%;
+      //background: red;
+      margin-left: 0%;
+      padding-top: 35vh;
+      transition: width .5s ease-in-out, height .5s ease-in-out, margin .5s ease-in-out;
+      display: flex;
+      //align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      //z-index: 12323123;
+      position: relative;
+
+      .RegisterBtn{
+        margin-left: 20px;
+        margin-top: 20px;
+        outline: none;
+        border: 3px solid #303036;
+        box-sizing: border-box;
+        color: #303036;
+        background: white;
+        font-size: 25px;
+        font-weight: 600;
+        width: calc(100% - 35px);
+        height: 70px;
+        border-radius: 20px;
+        float: left;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+      .RegisterBtn:hover{
+        background: #f1f1f1;
+        //color: white;
+      }
+
+      .RegisterBtn:disabled{
+        background: #999;
+        cursor: default;
+      }
+    }
+  }
+
+  .PostCreatorWrap.open{
+    clip-path: circle(120vw at calc(100vw - 60px) calc(100vh - 60px));
+  }
+
+  .PostCreatorWrap.closing{
+    clip-path: circle(40px at calc(340px) calc(100vh - 60px));
+  }
+
+  .PostCreatorWrap.left{
+    margin-left: 0px;
+    clip-path: circle(40px at calc(60px) calc(100vh - 60px));
+  }
+
+  .PostCreatorWrap.left.open{
+    clip-path: circle(120vw at calc(-100vw + 460px) calc(100vh - 60px));
+  }
+
+  .PostCreatorWrap.left.closing{
+    clip-path: circle(40px at calc(60px) calc(100vh - 60px));
+  }
+}
+
+.PostCreator.open{
+  z-index: 1004;
+}

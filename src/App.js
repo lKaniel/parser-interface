@@ -1,6 +1,9 @@
 import List from "./components/List/List";
 import {useEffect, useState, useCallback} from 'react';
 import axios from "axios";
+import classes from "./App.module.scss";
+import PostCreator from "./components/PostCreator/PostCreator";
+import SortMenu from "./components/SortMenu/SortMenu";
 
 function App() {
 
@@ -15,9 +18,32 @@ function App() {
             order: "id",
             reverse: false,
             page: 0,
-            count: 20
-        }
+            count: 20,
+            maxPages: 1
+        },
     })
+
+    const sort = useCallback((order)=>{
+        setState((prev)=>{
+            if (prev.sort.order === order){
+                return{
+                    ...prev,
+                    sort:{
+                        ...prev.sort,
+                        reverse: !prev.sort.reverse
+                    }
+                }
+            }
+            return{
+                ...prev,
+                sort:{
+                    ...prev.sort,
+                    order: order,
+                    reverse: false
+                }
+            }
+        })
+    },[])
 
     const getData = useCallback(async () => {
         try {
@@ -32,12 +58,16 @@ function App() {
                 `page=${state.sort.page}&` +
                 `count=${state.sort.count}`;
             const response = await axios.get(SQL);
-            let data = response.data;
-            console.log(data)
+            let posts = response.data.posts;
+            let pages = parseInt(response.data.pages);
             setState((prev) => {
                 return {
                     ...prev,
-                    posts: data
+                    posts: posts,
+                    sort:{
+                        ...prev.sort,
+                        maxPages: pages
+                    }
                 }
             })
         } catch (e) {
@@ -50,8 +80,10 @@ function App() {
 
 
     return (
-        <div>
-            <List posts= {state.posts}/>
+        <div className={classes.App}>
+            <PostCreator left={true}><SortMenu/></PostCreator>
+            <PostCreator><SortMenu/></PostCreator>
+            <List posts= {state.posts} page={state.sort.page+1} maxPages={state.sort.maxPages} sort={sort}/>
         </div>
     );
 };

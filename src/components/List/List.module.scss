@@ -1,40 +1,174 @@
 .List {
-  width: calc(60.6vw - 60px);
-  margin: 30px;
-  float: left;
+  width: 900px;
+  margin: 0 auto;
 
   table {
     width: 100%;
-    border-spacing: 4px 8px;
+    margin: auto;
+    border-spacing: 4px 4px;
     border-collapse: separate;
-    border-radius: 20px;
+    border: 0px;
 
     tr {
-      background: #DBA159;
+      background: #F4B860;
       border: 0px solid transparent;
+      color: #050401;
+
+
+      &:hover td{
+        background: #878472;
+        color: #FFFAFF;
+        border: 1px #878472 solid;
+      }
 
       td {
-        border: 5px solid transparent;
         text-align: center;
         //border-radius: 10px;
-        color: #4C2E05;
         font-weight: 600;
-        padding: 5px;
-        box-shadow:  0 0 5px #DBA159;
+        padding: 5px 0;
+        font-size: 14px;
+        //box-shadow:  0 0 5px #CFCACF;
+        border: 1px #F4B860 solid;
         cursor: pointer;
+        border-radius: 10px;
 
         &:hover{
-          background: #02182B;
-          color: #FDFFFC;
+          background: #303036;
+          color: #FFFAFF;
+          border: 1px #303036 solid;
         }
       }
-      &:hover{
-        background: #448FA3;
-      }
+
       td:first-child { border-top-left-radius: 10px; }
       td:last-child { border-top-right-radius: 10px; }
       td:first-child { border-bottom-left-radius: 10px; }
       td:last-child { border-bottom-right-radius: 10px; }
+    }
+
+    thead{
+      tr{
+        td{
+          background: #878472;
+          color: #FFFAFF;
+          border: 1px #878472 solid;
+        }
+      }
+    }
+  }
+
+  .Next{
+    width: 100px;
+    list-style: none;
+    height: 20px;
+    background: #878472;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px auto auto;
+    border-radius: 10px;
+    user-select: none;
+
+    li{
+      width: 40px;
+      height: 25px;
+      text-align: center;
+      float: left;
+      //border-radius: 10px;
+      font-size: 10px;
+      cursor: pointer;
+      line-height: 25px;
+      color: #FFFAFF;
+      font-weight: 600;
+
+      &:hover{
+        //background: #050401;
+      }
+    }
+
+
+
+    .Number{
+      width: 30px;
+      height: 30px;
+      cursor: auto;
+      font-size: 20px;
+      background: #F4B860;
+      color: #050401;
+      font-weight: 700;
+      border-radius: 50px;
+      border: 2px solid white;
+      line-height: 30px;
+    }
+
+    .Blank{
+      opacity: .4;
+      cursor: default;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .List{
+    width: 1280px;
+    table {
+      tr {
+        td {
+          padding: 10px 0px;
+          font-size: 16px;
+        }
+      }
+    }
+    .Next{
+      width: 150px;
+      height: 30px;
+      margin: 15px auto auto;
+
+      li{
+        width: 55px;
+        height: 30px;
+        font-size: 16px;
+        line-height: 30px;
+      }
+
+      .Number{
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+        line-height: 40px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .List{
+    width: 1600px;
+    table {
+      tr {
+        td {
+          padding: 15px 0px;
+          font-size: 20px;
+        }
+      }
+    }
+    .Next{
+      width: 200px;
+      height: 40px;
+      margin: 20px auto auto;
+
+      li{
+        width: 75px;
+        height: 40px;
+        font-size: 20px;
+        line-height: 40px;
+      }
+
+      .Number{
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        line-height: 50px;
+      }
     }
   }
 }
