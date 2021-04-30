@@ -2,6 +2,8 @@
   position: fixed;
   z-index: 999999;
   overflow: visible;
+  background: rgba(0,0,0,0);
+  transition: background .5s;
 
   .OpenButton{
     overflow: hidden;
@@ -48,6 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-y: scroll;
 
     .PostCreatorContent{
       width: 100%;
@@ -93,7 +96,7 @@
   }
 
   .PostCreatorWrap.open{
-    clip-path: circle(120vw at calc(100vw - 60px) calc(100vh - 60px));
+    clip-path: circle(130vw at calc(100vw - 60px) calc(100vh - 60px));
   }
 
   .PostCreatorWrap.closing{
@@ -106,7 +109,7 @@
   }
 
   .PostCreatorWrap.left.open{
-    clip-path: circle(120vw at calc(-100vw + 460px) calc(100vh - 60px));
+    clip-path: circle(130vw at calc(-100vw + 460px) calc(100vh - 60px));
   }
 
   .PostCreatorWrap.left.closing{
@@ -116,4 +119,5 @@
 
 .PostCreator.open{
   z-index: 1004;
+  background: rgba(0,0,0,.5);
 }

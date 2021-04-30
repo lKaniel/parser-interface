@@ -92,6 +92,7 @@ const PostCreator = (props) => {
         if (props.left === true){
             postWrapCls.push(classes.left);
             openButtonCls.push(classes.left);
+            postCreatorCls.push(classes.left);
         }
 
         return (
