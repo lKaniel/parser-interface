@@ -54,7 +54,7 @@ function App() {
             },
             dr: {
                 min: {
-                    value: 1,
+                    value: -1,
                     type: "text",
                     label: "min",
                     hint: "min",
@@ -85,7 +85,7 @@ function App() {
             },
             blacklinks: {
                 min: {
-                    value: 20,
+                    value: -1,
                     type: "text",
                     label: "min",
                     hint: "min",
@@ -116,7 +116,7 @@ function App() {
             },
             doFollowBlacklinks: {
                 min: {
-                    value: 3,
+                    value: -1,
                     type: "text",
                     label: "min",
                     hint: "min",
@@ -147,7 +147,7 @@ function App() {
             },
             organicKeywords: {
                 min: {
-                    value: 0,
+                    value: -1,
                     type: "text",
                     label: "min",
                     hint: "min",
@@ -189,7 +189,7 @@ function App() {
                 sort:
                     prev.isParsed ?
                         {
-                            dr: [1, 1000],
+                            dr: [-1, 1000],
                             blacklinks: [20, 1000],
                             doFollowBlacklinks: [3, 100],
                             organicKeywords: [0, 1000],
@@ -250,7 +250,7 @@ function App() {
                             },
                             dr: {
                                 min: {
-                                    value: 1,
+                                    value: -1,
                                     type: "text",
                                     label: "min",
                                     hint: "min",
@@ -281,7 +281,7 @@ function App() {
                             },
                             blacklinks: {
                                 min: {
-                                    value: 20,
+                                    value: -1,
                                     type: "text",
                                     label: "min",
                                     hint: "min",
@@ -312,7 +312,7 @@ function App() {
                             },
                             doFollowBlacklinks: {
                                 min: {
-                                    value: 3,
+                                    value: -1,
                                     type: "text",
                                     label: "min",
                                     hint: "min",
@@ -343,7 +343,7 @@ function App() {
                             },
                             organicKeywords: {
                                 min: {
-                                    value: 0,
+                                    value: -1,
                                     type: "text",
                                     label: "min",
                                     hint: "min",
