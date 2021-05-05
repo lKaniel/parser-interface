@@ -77,10 +77,10 @@ const List = ({posts, page, maxPages, sort, changePage, isParsed}) => {
                         <td><a href={element.marketplacePage} target="_blank">{element.url}</a></td>
                         <td>{element.minPrice}</td>
                         <td>{element.optimalPrice}</td>
+                        <td>{element.returning}</td>
                         <td>{element.age.split("T")[0]}</td>
                         <td>{element.createdAt.split("T")[0]}</td>
                         <td>{element.monthlyUsers}</td>
-                        <td>{element.googlePages}</td>
                         <td>{element.dr}</td>
                         <td>{element.blackLinks}</td>
                         <td>{element.organicKeywords}</td>
@@ -109,6 +109,10 @@ const List = ({posts, page, maxPages, sort, changePage, isParsed}) => {
                         }}>Local price
                         </td>
                         <td onClick={() => {
+                            sort("returning")
+                        }}>Income
+                        </td>
+                        <td onClick={() => {
                             sort("age")
                         }}>age
                         </td>
@@ -119,10 +123,6 @@ const List = ({posts, page, maxPages, sort, changePage, isParsed}) => {
                         <td onClick={() => {
                             sort("monthlyUsers")
                         }}>Monthly users
-                        </td>
-                        <td onClick={() => {
-                            sort("googlePages")
-                        }}>Google pages
                         </td>
                         <td onClick={() => {
                             sort("dr")

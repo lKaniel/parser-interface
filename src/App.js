@@ -11,10 +11,10 @@ function App() {
     let [state, setState] = useState({
         posts: [],
         sort: {
-            dr: [1, 1000],
-            blacklinks: [20, 1000],
-            doFollowBlacklinks: [3, 100],
-            organicKeywords: [0, 1000],
+            dr: [-1, 1000],
+            blacklinks: [-1, 1000],
+            doFollowBlacklinks: [-1, 100],
+            organicKeywords: [-1, 1000],
             createdAt: ["2000-01-01", "2200-01-01"],
             order: "id",
             reverse: false,
@@ -931,7 +931,7 @@ function App() {
 
     return (
         <div className={classes.App}>
-            <PostCreator left={true}><UpdateMenu switchTable={switchTable}/></PostCreator>
+            <PostCreator left={true}><UpdateMenu switchTable={switchTable} isParsed={state.isParsed} getData={getData}/></PostCreator>
             <PostCreator><SortMenu form={state.createPostForm} update={updateFrame}/></PostCreator>
             <List posts={state.posts} page={state.sort.page + 1} maxPages={state.sort.maxPages} sort={sort}
                   changePage={changePage} isParsed={state.isParsed}/>
